@@ -1,0 +1,72 @@
+CREATE TABLE test.Player (
+    player_id BIGINT AUTO_INCREMENT NOT NULL,
+    national_id BIGINT NULL,
+    player_name VARCHAR(100) NULL,
+    highscore VARCHAR(100) NULL,
+    `level` VARCHAR(100) NULL,
+    PRIMARY KEY (player_id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_general_ci;
+
+=====================================================
+
+CREATE TABLE test.National (
+    national_id BIGINT AUTO_INCREMENT NOT NULL,
+    national_name VARCHAR(100) NULL,
+    PRIMARY KEY (national_id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_general_ci;
+
+=====================================================
+
+DELIMITER //
+
+CREATE PROCEDURE InsertPlayer(
+    IN p_national_id BIGINT,
+    IN p_player_name VARCHAR(100),
+    IN p_highscore VARCHAR(100),
+    IN p_level VARCHAR(100)
+)
+BEGIN
+    INSERT INTO test.Player (national_id, player_name, highscore, `level`)
+    VALUES (p_national_id, p_player_name, p_highscore, p_level);
+END //
+
+DELIMITER ;
+
+=====================================================
+
+DELIMITER //
+
+CREATE PROCEDURE InsertNational1(
+    IN p_national_Name VARCHAR(100)
+)
+BEGIN
+    INSERT INTO test.National (national_Name)
+    VALUES (p_national_Name);
+END //
+
+DELIMITER ;
+
+=====================================================
+
+
+DELIMITER //
+
+CREATE PROCEDURE ShowPlayerWithNational1()
+BEGIN
+    SELECT p.player_Id, p.player_Name, p.highScore, p.level, n.national_Name
+    FROM test.Player p
+    LEFT JOIN test.National n ON p.national_Id = n.national_Id;
+END //
+
+DELIMITER ;
+
+=========================================================
+
+
+// call ShowPlayerWithNational1();
