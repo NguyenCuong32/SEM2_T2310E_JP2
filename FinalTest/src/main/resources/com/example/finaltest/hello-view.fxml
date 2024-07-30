@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.finaltest.Controller.PlayerController">
+  <children>
+    <Label text="Player name" />
+    <TextField fx:id="name" />
+
+    <Label text="High score" />
+    <TextField fx:id="score" />
+
+    <Label text="Level" />
+    <TextField fx:id="level" />
+
+    <Label text="National ID" />
+    <TextField fx:id="nationalID" />
+
+    <Button text="Add" onAction="#addPlayer"/>
+
+    <Label text="Enter player ID to delete" />
+    <TextField fx:id="playername" />
+    <HBox>
+      <Button text="Find player" onAction="#findPlayer" />
+      <Button text="Delete player" onAction="#deletePlayer" />
+    </HBox>
+    <Label fx:id="Information"/>
+    <HBox>
+      <Button text="Get players" onAction="#getAllPlayer" />
+      <Button text="Get top 10 players" onAction="#getTopTenPlayer" />
+    </HBox>
+    <TableView fx:id="playerTable"></TableView>
+  </children>
+</VBox>
