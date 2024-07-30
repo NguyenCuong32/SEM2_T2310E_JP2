@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hello.baithijavafx.Controller.MainController">
+    <top>
+        <HBox spacing="10" padding="10">
+            <Label text="Player Name:"/>
+            <TextField fx:id="playerNameField"/>
+            <Button text="Find" onAction="#handleFindPlayer"/>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="playerTable">
+            <columns>
+                <TableColumn fx:id="playerIdColumn" text="Player Id"/>
+                <TableColumn fx:id="playerNameColumn" text="Player Name"/>
+                <TableColumn fx:id="highScoreColumn" text="High Score"/>
+                <TableColumn fx:id="levelColumn" text="Level"/>
+                <TableColumn fx:id="nationalColumn" text="National"/>
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox spacing="10" padding="10">
+            <Button text="Add Player" onAction="#handleAddPlayer"/>
+            <Button text="Delete Player" onAction="#handleDeletePlayer"/>
+            <Button text="Add National" onAction="#handleAddNational"/>
+            <Button text="Delete National" onAction="#handleDeleteNational"/>
+            <Button text="Display All" onAction="#handleDisplayAll"/>
+            <Button text="Display Top 10" onAction="#handleDisplayTop10"/>
+        </HBox>
+    </bottom>
+</BorderPane>
