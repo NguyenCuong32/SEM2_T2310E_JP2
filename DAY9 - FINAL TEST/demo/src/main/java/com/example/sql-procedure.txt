@@ -1,0 +1,76 @@
+DELIMITER //
+DROP PROCEDURE IF EXISTS INSERT_STUDENT //
+CREATE PROCEDURE INSERT_STUDENT(
+    IN id INT,
+    IN first_name VARCHAR(30),
+	IN last_name VARCHAR(30),
+	IN email VARCHAR(30),
+	IN id_class INT
+)
+BEGIN
+    INSERT INTO students (id, first_name, last_name, email, id_class) VALUES (id, first_name, last_name, email, id_class);
+END //
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+CREATE PROCEDURE SHOW_STUDENT()
+BEGIN
+    SELECT * FROM students;
+END //
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS DELETE_STUDENT //
+CREATE PROCEDURE DELETE_STUDENT(
+    IN p_id INT
+)
+BEGIN
+    DELETE FROM students WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+
+
+
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS UPDATE_STUDENT //
+CREATE PROCEDURE UPDATE_STUDENT(
+	IN p_id INT,
+    IN p_first_name VARCHAR(30),
+	IN p_last_name VARCHAR(30),
+	IN p_email VARCHAR(30),
+	IN p_id_class INT
+)
+BEGIN
+    UPDATE students
+    SET first_name = p_first_name, last_name = p_last_name, email = p_email, id_class = p_id_class
+    WHERE id = p_id;
+END //
+
+DELIMITER ;
+
+
+
+
+
+DELIMITER //
+CREATE PROCEDURE SHOW_STUDENT_WITH_CLASSNAME()
+BEGIN
+    SELECT students.id,students.first_name, students.last_name, classroom.class_name
+    FROM students, classroom
+    WHERE students.id_class = classroom.class_id;
+END //
+
+DELIMITER ;

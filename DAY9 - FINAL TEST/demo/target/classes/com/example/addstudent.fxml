@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox alignment="TOP_LEFT" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.AddStudentController">
+   <children>
+      <HBox spacing="20.0">
+         <children>
+            <Button text="Add " fx:id="button1" />
+            <Button text="List " onAction="#switchTo_liststudent" />
+            <Button text="Find " onAction="#switchTo_deletestudent" />
+            <Button text="Update " onAction="#switchTo_updatestudent" />
+         </children>
+      </HBox>
+      <Label text="PlayerName" />
+      <TextField fx:id="text_player_name"></TextField>
+      <Label text="HighScore" />
+      <TextField fx:id="text_player_highscore"></TextField>
+      <Label text="Level" />
+      <TextField fx:id="text_player_level"></TextField>
+      <Label text="NationalId" />
+      <TextField fx:id="text_national_id"></TextField>
+      <Button fx:id="primaryButton" text="Add Player" onAction="#addStudent"/>
+
+
+
+      <Label text="Nationnal Name" />
+      <TextField fx:id="text_national_name"></TextField>
+      <Button fx:id="primaryButton" text="Add National" onAction="#addNational"/>
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="20.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>

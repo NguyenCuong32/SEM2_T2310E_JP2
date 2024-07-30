@@ -1,0 +1,92 @@
+CREATE DATABASE finaltestjava2;
+use finaltestjava2;
+
+CREATE TABLE National (
+	NationalId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	NationalName NVARCHAR(255)
+);
+
+CREATE TABLE Player(
+	PlayerId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	PlayerName NVARCHAR(255),
+	HighScore int,
+	Level int,
+	NationalId int,
+    CONSTRAINT fk_national FOREIGN KEY (NationalId) REFERENCES National(NationalId)
+);
+
+
+
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS INSERT_PLAYER //
+CREATE PROCEDURE INSERT_PLAYER(
+    IN PlayerId INT,
+    IN PlayerName VARCHAR(255),
+	IN HighScore INT,
+	IN Level INT,
+	IN NationalId INT
+)
+BEGIN
+    INSERT INTO player (PlayerId, PlayerName, HighScore, Level, NationalId) VALUES (PlayerId, PlayerName, HighScore, Level, NationalId);
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS INSERT_NATIONAL //
+CREATE PROCEDURE INSERT_NATIONAL(
+    IN NationalId INT,
+    IN NationalName VARCHAR(255)
+)
+BEGIN
+    INSERT INTO national (NationalId, NationalName) VALUES (NationalId, NationalName);
+END //
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+CREATE PROCEDURE SHOW_PLAYER()
+BEGIN
+	SELECT 
+		Player.PlayerId, 
+		Player.PlayerName, 
+		Player.HighScore, 
+		Player.Level, 
+		National.NationalName
+	FROM 
+		Player
+	JOIN 
+		National ON Player.NationalId = National.NationalId;
+END //
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE GetPlayerByName(IN searchName NVARCHAR(255))
+BEGIN
+    SELECT 
+        Player.PlayerId, 
+        Player.PlayerName, 
+        Player.HighScore, 
+        Player.Level, 
+        National.NationalName
+    FROM 
+        Player
+    JOIN 
+        National ON Player.NationalId = National.NationalId
+    WHERE 
+        Player.PlayerName LIKE CONCAT('%', searchName, '%');
+END //
+
+DELIMITER ;

@@ -1,0 +1,12 @@
+.table-view {
+    -fx-background-color: lightgray;
+}
+
+.button {
+    -fx-background-color: #4CAF50; /* Green */
+    -fx-text-fill: white;
+}
+
+.text-field {
+    -fx-background-color: lightyellow;
+}
