@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.fai.example.demojavafx.controller.PlayerController"
+            prefHeight="800.0" prefWidth="600.0">
+
+    <VBox spacing="8.0" alignment="TOP_LEFT" styleClass="vbox" AnchorPane.topAnchor="8.0" AnchorPane.leftAnchor="8.0">
+        <Label text="Player Name" styleClass="label"/>
+        <TextField fx:id="txtPlayerName" styleClass="text-field"/>
+        <Label text="High Score" styleClass="label"/>
+        <TextField fx:id="txtHighScore" styleClass="text-field"/>
+        <Label text="Level" styleClass="label"/>
+        <TextField fx:id="txtLevel" styleClass="text-field"/>
+        <Label text="National Id" styleClass="label"/>
+        <TextField fx:id="txtNationalId" styleClass="text-field"/>
+        <Button fx:id="btnAdd" text="Add" onMouseClicked="#onAddPlayer" styleClass="button"/>
+        <Label fx:id="lblMessage"></Label>
+        <Label>Player Id</Label>
+        <TextField fx:id="txtPlayerId"></TextField>
+        <Button text="Delete" fx:id="btnDelete" onMouseClicked="#onDeletePlayer"></Button>
+        <Button text="Show All Data" fx:id="btnShowAll" onMouseClicked="#onShowAllData"></Button>
+        <TableView fx:id="tableView"></TableView>
+    </VBox>
+</AnchorPane>
