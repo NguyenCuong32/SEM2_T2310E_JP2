@@ -1,0 +1,76 @@
+USE HeroGame;
+
+DELIMITER //
+
+CREATE PROCEDURE AddPlayer (
+    IN p_NationalId INT,
+    IN p_PlayerName VARCHAR(100),
+    IN p_HighScore INT,
+    IN p_Level INT
+)
+BEGIN
+    INSERT INTO Player (NationalId, PlayerName, HighScore, Level)
+    VALUES (p_NationalId, p_PlayerName, p_HighScore, p_Level);
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE RemovePlayer (
+    IN p_PlayerId INT
+)
+BEGIN
+    DELETE FROM Player WHERE PlayerId = p_PlayerId;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE AddNational (
+    IN p_NationalName VARCHAR(100)
+)
+BEGIN
+    INSERT INTO National (NationalName) VALUES (p_NationalName);
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE RemoveNational (
+    IN p_NationalId INT
+)
+BEGIN
+    DELETE FROM National WHERE NationalId = p_NationalId;
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE FindPlayerByName (
+    IN p_PlayerName VARCHAR(100)
+)
+BEGIN
+    SELECT * FROM Player WHERE PlayerName LIKE CONCAT('%', p_PlayerName, '%');
+END //
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE PROCEDURE GetTop10Players()
+BEGIN
+    SELECT * FROM Player
+    ORDER BY HighScore DESC
+    LIMIT 10;
+END //
+
+DELIMITER ;
