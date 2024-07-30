@@ -1,0 +1,87 @@
+DELIMITER //
+DROP PROCEDURE IF EXISTS INSERT_PLAYER //
+CREATE PROCEDURE INSERT_PLAYER(
+    IN PlayerId INT,
+    IN NationalId int,
+    IN PlayerName varchar(255),
+    IN HighScore int,
+    IN Level int
+)
+BEGIN
+	INSERT INTO player(PlayerId, NationalId, PlayerName, HighScore, Level) VALUES (PlayerId, NationalId, PlayerName, HighScore, Level)
+end;
+
+DELIMITER ;
+
+
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS INSERT_NATIONAL //
+CREATE PROCEDURE INSERT_NATIONAL(
+    IN NationalId int,
+    In NationalName varchar(255)
+)
+BEGIN
+	INSERT INTO national(NationalId, NationalName) VALUES (NationalId, NationalName);
+end;
+
+DELIMITER ;
+
+
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS DELETE_PLAYER //
+CREATE PROCEDURE DELETE_PLAYER(
+    IN PlayerId int
+)
+BEGIN
+	DELETE FROM player WHERE PlayerId = PlayerId;
+end;
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS DELETE_NATIONAL //
+CREATE PROCEDURE DELETE_NATIONAL(
+    IN NationalId int
+)
+BEGIN
+	DELETE FROM national WHERE NationalId = NationalId;
+end;
+
+DELIMITER ;
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS FIND_BY_ID //
+CREATE PROCEDURE FIND_BY_ID(
+    IN PlayerId INT
+)
+BEGIN
+	SELECT PlayerId, NationalId, PlayerName, HighScore, Level 
+	FROM player WHERE PlayerId = PlayerId;
+end;
+
+DELIMITER ;
+
+
+
+DELIMITER //
+DROP PROCEDURE IF EXISTS FIND_BY_ID //
+CREATE PROCEDURE FIND_BY_ID(
+    IN NationalId INT
+)
+BEGIN
+	SELECT NationalId, NationalName
+	FROM national WHERE NationalId = NationalId;
+end;
+
+DELIMITER ;
