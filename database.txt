@@ -1,0 +1,16 @@
+CREATE DATABASE finaltestjava2;
+use finaltestjava2;
+
+CREATE TABLE National (
+	NationalId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	NationalName NVARCHAR(255)
+);
+
+CREATE TABLE Player(
+	PlayerId int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	PlayerName NVARCHAR(255),
+	HighScore int,
+	Level int,
+	NationalId int,
+    CONSTRAINT fk_national FOREIGN KEY (NationalId) REFERENCES National(NationalId)
+);
