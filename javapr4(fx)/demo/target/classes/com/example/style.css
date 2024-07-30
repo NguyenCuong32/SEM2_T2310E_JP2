@@ -1,0 +1,14 @@
+.vbox .label {
+    -fx-margin-top: 8px;
+}
+
+.vbox .text-field {
+    -fx-margin-bottom: 16px;
+    -fx-pref-width: 400px;
+}
+
+.vbox .button {
+    -fx-margin-top: 16px;
+    -fx-pref-width: 140px;
+    -fx-background-color: #fa0000
+}
