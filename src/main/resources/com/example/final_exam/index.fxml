@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.final_exam.controller.Controller"
+            prefHeight="800.0" prefWidth="800.0">
+
+    <GridPane hgap="20" vgap="20" alignment="CENTER" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+              AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+        <columnConstraints>
+            <ColumnConstraints prefWidth="300"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <VBox spacing="8.0" alignment="TOP_LEFT" styleClass="vbox" GridPane.columnIndex="0">
+            <Label text="National Name" styleClass="label"/>
+            <TextField fx:id="txtNationalName" styleClass="text-field"/>
+            <Button fx:id="btnAdd" text="Add National" onMouseClicked="#onAddNational" styleClass="button"/>
+            <Label text="National Id to delete" styleClass="label"/>
+            <TextField fx:id="txtNationalId" styleClass="text-field"/>
+            <Button text="Delete National" fx:id="btnDelete" onMouseClicked="#onDeleteNational"></Button>
+
+            <Button text="Show All National" fx:id="btnShowAllNational" onMouseClicked="#onShowAllNational"></Button>
+        </VBox>
+
+        <VBox spacing="8.0" alignment="TOP_LEFT" styleClass="vbox" GridPane.columnIndex="1">
+            <Label text="Player Name" styleClass="label"/>
+            <TextField fx:id="txtPlayerName" styleClass="text-field"/>
+            <Label text="National Id" styleClass="label"/>
+            <TextField fx:id="txtPlayerNationalId" styleClass="text-field"/>
+            <Label text="High Score" styleClass="label"/>
+            <TextField fx:id="txtHighScore" styleClass="text-field"/>
+            <Label text="Level" styleClass="label"/>
+            <TextField fx:id="txtLevel" styleClass="text-field"/>
+            <Button fx:id="btnAddPlayer" text="Add Player" onMouseClicked="#onAddPlayer" styleClass="button"/>
+
+            <Label fx:id="lblMessage"></Label>
+            <Label>Enter player name to find:</Label>
+            <TextField fx:id="txtPlayerNameToFind"></TextField>
+            <Button text="Find by name" fx:id="btnGet" onMouseClicked="#onFindByName"></Button>
+
+            <Label text="Enter player id to delete" styleClass="label"/>
+            <TextField fx:id="txtPlayerIdToDelete"></TextField>
+            <Button text="Delete Player" fx:id="btnDeletePlayer" onMouseClicked="#onDeletePlayer"></Button>
+
+            <Button text="Show All Player" fx:id="btnShowAll" onMouseClicked="#onShowAllPlayer"></Button>
+
+            <Button text="Show top 10 player" fx:id="btnShowTop10" onMouseClicked="#onShowTop10Player"></Button>
+
+        </VBox>
+
+        <TableView fx:id="tableView" GridPane.columnIndex="2"/>
+        <TableView fx:id="tableViewNational" GridPane.columnIndex="3"/>
+    </GridPane>
+</AnchorPane>
